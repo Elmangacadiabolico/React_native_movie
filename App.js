@@ -1,22 +1,22 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, FlatList } from 'react-native';
+import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import Prueba from './components/Prueba';
-import Mangas from './jsons/Imagenes.json'
 import HelloWord from './components/HelloWord';
 import MyProfile from './components/Myprofile';
-import Buttons_a from './components/Buttons_a'
+import Buttons_a from './components/Buttons_a';
+import Card_game from './components/Card_game';
 
 export default function App() {
-
-  const data = [ Mangas];
-
   return (
     <View style={styles.container}>
-      <HelloWord/>
-      <MyProfile/>
-     <Buttons_a/>
-      <FlatList data={data} keyExtractor={(item) => item.id} renderItem={({ item }) => <Prueba nombre={item.nombre} />} />
-      <StatusBar style="auto" />
+      <ScrollView>
+        <Prueba />
+        <HelloWord />
+        <MyProfile />
+        <Buttons_a />
+        <Card_game />
+        <StatusBar style="auto" />
+      </ScrollView>
     </View>
   );
 }
