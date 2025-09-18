@@ -3,17 +3,19 @@ import { Text, View, StyleSheet, Button, Alert, Pressable } from "react-native";
 export default function HelloWord() {
   const Press = () => {
     Alert.alert("¡Atención!", "HAAA me presionaste");
+    console.log("presionaste");
   };
 
-  const PressCustom = () => {
-    Alert.alert("Botón fachero", "Soy el boton fachero");
+  const Custom = () => {
+    Alert.alert("Botón fachero", "Soy el botón fachero");
+    console.log("test");
   };
 
   return (
     <View style={styles.container}>
       <Button title="Presioname" onPress={Press} />
 
-      <Pressable style={styles.pressable} onPress={PressCustom}>
+      <Pressable style={styles.pressable} onPress={Custom}>
         <Text style={styles.pressableText}>Soy un Pressable Cheto</Text>
       </Pressable>
     </View>
