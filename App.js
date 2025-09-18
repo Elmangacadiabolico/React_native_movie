@@ -1,21 +1,29 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, ScrollView } from 'react-native';
-import SiteSafe from './components/SiteSafe';
+import { StyleSheet, View, StatusBar } from 'react-native';
+import { SafeAreaProvider, useSafeAreaInsets } from 'react-native-safe-area-context';
+import MyProfile from './components/Myprofile';
 
+function AppContent() {
+  const insets = useSafeAreaInsets();
+
+  return (
+    <View style={{ ...styles.container, paddingTop: insets.top }}>
+      <StatusBar barStyle="dark-content" />
+      <MyProfile />
+    </View>
+  );
+}
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <SiteSafe/>
-     
-    </View>
+    <SafeAreaProvider>
+      <AppContent />
+    </SafeAreaProvider>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: 40,
-    padding: 10,
+    backgroundColor: '#f0f2f5',
   },
 });
